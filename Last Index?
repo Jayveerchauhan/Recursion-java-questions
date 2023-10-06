@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextInt();
+        }
+        int m = scanner.nextInt();
+        System.out.println(lastIndexOf(array, m));
+    }
+
+    public static int lastIndexOf(int[] array, int m) {
+        return lastIndexOfHelper(array, m, array.length - 1);
+    }
+
+    public static int lastIndexOfHelper(int[] array, int m, int index) {
+        if (index < 0) {
+            return -1;
+        }
+        if (array[index] == m) {
+            return index;
+        }
+        return lastIndexOfHelper(array, m, index - 1);
+    }
+}
