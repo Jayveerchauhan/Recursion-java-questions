@@ -1,0 +1,28 @@
+#include<iostream>
+#include <cstring>
+#include <math.h>
+using namespace std;
+
+void format(char* a, int l)
+{
+    if(l==strlen(a))
+         return;
+
+    if(a[l]==a[l+1])
+    {
+	    for(int i=strlen(a);i>l;i--)
+	    {
+		    a[i]=a[i-1];
+	    }
+	    a[l+1]='*';
+    }
+    format(a,l+1);
+}
+int main()
+{
+    char a[200];
+    cin>>a;
+    format(a,0);
+    cout<<a;
+    return 0;
+}
